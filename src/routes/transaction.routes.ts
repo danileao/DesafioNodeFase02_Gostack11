@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { isUuid } from 'uuidv4';
 import TransactionsRepository from '../repositories/TransactionsRepository';
 import CreateTransactionService from '../services/CreateTransactionService';
 

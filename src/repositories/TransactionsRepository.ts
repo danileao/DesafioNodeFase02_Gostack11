@@ -22,20 +22,20 @@ class TransactionsRepository {
   }
 
   public getBalance(): Balance {
-    let somaIncome = 0;
-    let somaOutcome = 0;
-    this.transactions.map(transaction => {
-      if (transaction.type === 'income') somaIncome += transaction.value;
-      return somaIncome;
-    });
-    this.transactions.map(transaction => {
-      if (transaction.type === 'outcome') somaOutcome += transaction.value;
-      return somaOutcome;
-    });
+    const Income = this.transactions.reduce((sumIncome, transaction) => {
+      if (transaction.type === 'income') return sumIncome + transaction.value;
+
+      return sumIncome;
+    }, 0);
+    const Outcome = this.transactions.reduce((sumOutcome, transaction) => {
+      if (transaction.type === 'outcome') return sumOutcome + transaction.value;
+
+      return sumOutcome;
+    }, 0);
     const Balance = {
-      income: somaIncome,
-      outcome: somaOutcome,
-      total: somaIncome - somaOutcome,
+      income: Income,
+      outcome: Outcome,
+      total: Income - Outcome,
     };
     return Balance;
   }
