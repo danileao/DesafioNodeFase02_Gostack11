@@ -6,6 +6,7 @@ interface Balance {
   total: number;
 }
 interface TransactionDTO {
+  id: string;
   title: string;
   value: number;
   type: 'income' | 'outcome';
@@ -40,10 +41,35 @@ class TransactionsRepository {
     return Balance;
   }
 
-  public create({ title, value, type }: TransactionDTO): Transaction {
+  public create({
+    title,
+    value,
+    type,
+  }: Omit<TransactionDTO, 'id'>): Transaction {
     const transaction = new Transaction({ title, value, type });
     this.transactions.push(transaction);
     return transaction;
+  }
+
+  public update({ id, title, value, type }: TransactionDTO): Transaction {
+    const indexTransaction = this.transactions.findIndex(
+      transaction => transaction.id === id,
+    );
+    const transactionUpdated = {
+      id,
+      title,
+      value,
+      type,
+    };
+    this.transactions[indexTransaction] = transactionUpdated;
+    return transactionUpdated;
+  }
+
+  public delete(id: string): void {
+    const indexTransaction = this.transactions.findIndex(
+      transaction => transaction.id === id,
+    );
+    this.transactions.splice(indexTransaction, 1);
   }
 }
 
