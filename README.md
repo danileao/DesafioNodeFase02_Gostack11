@@ -14,11 +14,9 @@
 - [Como utilizar](#-Como-utilizar)
 
 ## 📄 Sobre
-  O projeto criado, é uma aplicação do tipo CRUD (Create, Read, Update e Delete), possuindo as 4 funcionalidades básicas para manipulação
- de dados. 
-  O propósito da aplicação é poder criar, listar, atualizar e remover transações financeiras, através dos Métodos POST, GET, PUT, DELETE.
+  O propósito inicial do desafio, era construir uma aplicação que conseguisse criar e listar transações financeiras, através dos Métodos POST e GET. Mas decidi adicionar as funcionalidades de atualizar e remover as transações com os métodos PUT e DELETE. Assim, transformando a aplicação em uma aplicação do tipo __CRUD__ (**C**reate, **R**ead, **U**pdate e **D**elete), possuindo as 4 funcionalidades básicas para manipulação de dados. 
   O diferencial desse desafio, é que foi utilizado conceitos de models, repositories e services, que são alguns dos conceitos do 
-  SOLID (princípios ou boas práticas da programação orientada a objetos), estudados na 2° fase do Bootcamp GoStack11.
+SOLID (princípios ou boas práticas da programação orientada a objetos), estudados na 2° fase do Bootcamp GoStack11.
 
 ## 📋 Funcionalidades
 - **```Criar uma transação:```** Para inserir uma transação via Post, deve-se acessar a rota ```http://localhost:3333/transactions``` e 
@@ -73,6 +71,8 @@ O retorno esperado é o HTTP 204 (indicação que a requisição obteve sucesso 
 ## 💻 Tecnologias utilizadas 
   - TypeScript
   - Yarn
+  - [ESLint](https://eslint.org/)
+  - [Prettier](https://prettier.io/)
   - Jest
 
 ## 🛠 Ferramentas
